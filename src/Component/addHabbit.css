@@ -1,0 +1,12 @@
+.addHabbit{
+    margin-top: 20px;
+    margin-left: 8%;
+    padding: 20px;
+    background-color: antiquewhite;
+    width: 70%;
+}
+.cross-btn{
+    float: right;
+    margin-top: -60px;
+    font-size: 14px;
+}

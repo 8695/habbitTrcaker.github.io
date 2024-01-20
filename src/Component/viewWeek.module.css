@@ -1,0 +1,35 @@
+.weekView{
+    border: 1px solid black;
+    background-color: aquamarine;
+    padding: 10px;
+    margin: 10px;
+}
+.weekContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 30px;
+    border: none;
+    padding: 0px;
+}
+.statusContainer{
+    width: 25%;
+    text-align: center;
+    border: none;
+    background-color: bisque;
+    padding: 10px;
+
+}
+.btn{
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 7px;
+    margin: 10px;
+}
+.heading{
+    text-align: center;
+    color: blueviolet;
+    margin: 20px;
+}
