@@ -1,14 +1,16 @@
 import React from 'react'
 import style from './viewWeek.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark,faCheck,faMinus } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faXmark,faCheck,faMinus } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import DayView from './dayWeek';
 
 
 
 function ViewDetail() {
   const habbit = useSelector((state) => state.habbitData.habbit);
+
      
   
   return (
@@ -23,10 +25,8 @@ function ViewDetail() {
         {habit.week.weekLog.map((dayData)=>(
           <div key={dayData.id} className={style.statusContainer}>
         <p>{dayData.day}</p><span>{dayData.dd}</span>
-
-        <div > <button className={style.btn}><FontAwesomeIcon icon={faCheck} /></button>
-        <button className={style.btn}><FontAwesomeIcon icon={faXmark} /></button>
-        <button className={style.btn}><FontAwesomeIcon icon={faMinus} /></button>
+        <div> 
+        <DayView day={dayData} />
         </div>
         </div>
         ))}

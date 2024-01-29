@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 let id = 1;
 
 const currentDate = new Date();
-
 const month = currentDate.toLocaleString("en-US", { month: "long" });
 const year = currentDate.getFullYear();
 
@@ -120,9 +119,46 @@ const habbitSlice = createSlice({
     deleteHabbit: (state, action) => {
       state.habbit = state.habbit.filter((item) => item.id !== action.payload);
     },
+    
+    habitDone: (state, action) => {
+      const habitId = action.payload.habitId;
+      const dayIndex = action.payload.dayIndex;
+
+      const habit = state.habbit.find((h) => h.id === habitId);
+
+      if (habit) {
+        habit.week.weekLog[dayIndex].isDone = true;
+        alert("habbit Done")
+      }
+    },
+
+    habitUnDone: (state, action) => {
+      const habitId = action.payload.habitId;
+      const dayIndex = action.payload.dayIndex;
+
+      const habit = state.habbit.find((h) => h.id === habitId);
+
+      if (habit) {
+        habit.week.weekLog[dayIndex].isDone = false;
+        alert("habbit not Done")
+      }
+    },
+
+    habitNone: (state, action) => {
+      const habitId = action.payload.habitId;
+      const dayIndex = action.payload.dayIndex;
+
+      const habit = state.habbit.find((h) => h.id === habitId);
+
+      if (habit) {
+        habit.week.weekLog[dayIndex].isDone = "";
+      }
+    },
+    
+
   },
 });
 
 export default habbitSlice.reducer;
 
-export const { habbitAdd, deleteHabbit } = habbitSlice.actions;
+export const { habbitAdd, deleteHabbit,habitDone,habitUnDone,habitNone } = habbitSlice.actions;
